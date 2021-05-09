@@ -43,6 +43,8 @@ CACHE_PASS=
 CACHE_DB=0
 ```
 
+**Note: for Shopify, you can get a copy [here](https://docs.google.com/document/d/1vwcM7Mky4iShf2KPCDyNW6Ixw0sexpyX9HOpxPg37tw/edit?usp=sharing).**
+
 ### With Docker and Docker Compose
 
 The image repository server can be started with
@@ -105,7 +107,7 @@ down [id] [directory] - downloads the file with id to specified directory
 ls [-n] - lists all viewable images, 'ls -n' will view the next page
 ```
 
-Note: when using the client with Docker, all directories must be prefixed by mount/ .
+**Note: when using the client with Docker, all directories must be prefixed by mount/ .**
 
 ### Example Operations
 
