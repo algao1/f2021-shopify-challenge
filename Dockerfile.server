@@ -1,0 +1,14 @@
+FROM golang:1.16-alpine3.13 as build
+WORKDIR /go/src/github.com/algao1/imgrepo
+COPY . .
+RUN go build -o server ./cmd/server
+
+FROM alpine:3.13.2
+WORKDIR /root/
+COPY .env .
+COPY --from=build /go/src/github.com/algao1/imgrepo/server .
+
+EXPOSE 10000
+
+ENTRYPOINT ["./server"]
+CMD ["-server_addr", "localhost:10000"]

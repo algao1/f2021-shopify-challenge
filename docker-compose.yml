@@ -1,0 +1,17 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    # network_mode: "host"
+    environment: 
+      - CACHE_URL=host.docker.internal
+    ports: 
+      - "10000:10000"
+    # https://stackoverflow.com/questions/43911793/cannot-connect-to-go-grpc-server-running-in-local-docker-container
+    command: ["-server_addr", ":10000"]
+  redis:
+    image: redis:latest
+    ports: 
+      - "6379:6379"
+    

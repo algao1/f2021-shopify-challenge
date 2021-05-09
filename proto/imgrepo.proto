@@ -1,0 +1,76 @@
+syntax = "proto3";
+package proto;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "watcher/proto";
+
+service Repo {
+  rpc Register(RegisterRequest) returns (google.protobuf.Empty) {}
+  rpc Login(LoginRequest) returns (LoginResponse) {}
+
+  rpc UploadImage(stream Upload) returns (google.protobuf.Empty) {}
+  rpc DownloadImage(DownloadRequest) returns (stream Download) {}
+  rpc ListImages(ListRequest) returns (ListResponse) {}
+}
+
+message RegisterRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string token = 1;
+}
+
+message FileInfo {
+  string id = 1;
+  string file_name = 2;
+  string owner = 3;
+  int32 access = 4; // Probably change to enum.
+}
+
+message Upload {
+  oneof event {
+    UploadInfo info = 1;
+    Chunk chunk = 2;
+  }
+
+  message UploadInfo {
+    string token = 1;
+    FileInfo file_info = 2;
+  }
+
+  message Chunk {
+    bytes chunk = 1;
+  }
+}
+
+message DownloadRequest {
+  string token = 1;
+  string sender = 2;
+  string id = 3;
+}
+
+message Download {
+  oneof event {
+    FileInfo file_info = 1;
+    bytes chunk = 2;
+  }
+}
+
+message ListRequest {
+  string token = 1;
+  string sender = 2;
+  int32 size = 3;
+  string last_id = 4;
+}
+
+message ListResponse {
+  repeated FileInfo files = 1;
+}
