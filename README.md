@@ -8,11 +8,11 @@ Developer Intern Challenge Question`.
 * SEARCH function
   * shows the most recent images
 * ADD image(s) to the repository
-  * single/bulk/enormous amount of images using regex
+  * single/bulk/enormous amount of images (jpg, png, svg, etc.) using regex
   * private and public (permissions)
-  * secure uploading and stored images
+  * (in)secure uploading and stored images
 * DOWNLOAD images
-  * single download by id
+  * single image download by id
 
 ## Usage
 
@@ -112,8 +112,16 @@ ls [-n] - lists all viewable images, 'ls -n' will view the next page
 ### Example Operations
 
 ```
-reg n_user password
-login n_user password
+reg admin password
+login admin password
 ls
+ls -n
 up 1 .jpg _data
+down 6098110218339517c1321fa7 .
 ```
+
+## Next Steps
+
+* secure gRPC connection with SSL/TLS
+* refactor server.go, and client.go
+* add DELETE image(s) feature
