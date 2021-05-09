@@ -3,6 +3,17 @@
 This project was created for the `Fall 2021 - Shopify
 Developer Intern Challenge Question`.
 
+## Features
+
+* SEARCH function
+  * shows the most recent images
+* ADD image(s) to the repository
+  * single/bulk/enormous amount of images using regex
+  * private and public (permissions)
+  * secure uploading and stored images
+* DOWNLOAD images
+  * single download by id
+
 ## Usage
 
 ### Requirements
@@ -95,3 +106,12 @@ ls [-n] - lists all viewable images, 'ls -n' will view the next page
 ```
 
 Note: when using the client with Docker, all directories must be prefixed by mount/ .
+
+### Example Operations
+
+```
+reg n_user password
+login n_user password
+ls
+up 1 .jpg _data
+```
