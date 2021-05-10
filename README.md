@@ -1,4 +1,4 @@
-# Image Repo
+# Snapshots
 
 This project was created for the `Fall 2021 - Shopify
 Developer Intern Challenge Question`.
