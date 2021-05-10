@@ -18,9 +18,9 @@ Developer Intern Challenge Question`.
 
 ### Requirements
 
-Docker or go1.16+ is required.
+Docker or Go 1.16+ is required.
 
-Additionally, a `.env` file is required containing all the API keys. It should be in the format
+Additionally, a `.env` file is required in the root directory containing all the API keys. It should be in the format
 
 ```
 # MongoDB
